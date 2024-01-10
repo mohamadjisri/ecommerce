@@ -1,3 +1,4 @@
+import 'package:ecommerce/core/constant/color.dart';
 import 'package:ecommerce/routes.dart';
 import 'package:ecommerce/view/screen/onboarding.dart';
 import 'package:flutter/material.dart';
@@ -17,11 +18,18 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
+        fontFamily: "PlayfairDisplay",
+        textTheme: const TextTheme(
+            displayLarge: TextStyle(fontWeight: FontWeight.bold, fontSize: 20, color: AppColor.black),
+            bodyLarge: TextStyle(
+                height: 2,
+                color: AppColor.grey,
+                fontWeight: FontWeight.bold,
+                fontSize: 17)),
+        primarySwatch: Colors.blue,
       ),
       home: const OnBoarding(),
-      routes:routes ,
+      routes: routes,
     );
   }
 }
