@@ -27,13 +27,13 @@ class MyApp extends StatelessWidget {
         textTheme: const TextTheme(
             displayLarge: TextStyle(
                 fontWeight: FontWeight.bold,
-                fontSize: 20,
+                fontSize: 22,
                 color: AppColor.black),
             bodyLarge: TextStyle(
                 height: 2,
                 color: AppColor.grey,
                 fontWeight: FontWeight.bold,
-                fontSize: 17)),
+                fontSize: 14)),
         primarySwatch: Colors.blue,
       ),
       home: const OnBoarding(),
