@@ -1,7 +1,9 @@
 import 'package:ecommerce/core/constant/color.dart';
+import 'package:ecommerce/view/widget/auth/custombuttonauth.dart';
 import 'package:ecommerce/view/widget/auth/customtextbodyauth.dart';
 import 'package:ecommerce/view/widget/auth/customtextformauth.dart';
 import 'package:ecommerce/view/widget/auth/customtexttitleauth.dart';
+import 'package:ecommerce/view/widget/auth/logoauth.dart';
 import 'package:flutter/material.dart';
 
 class Login extends StatelessWidget {
@@ -22,27 +24,45 @@ class Login extends StatelessWidget {
       ),
       body: Container(
         padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 30),
-        child: ListView(children: const [
-          SizedBox(height: 20),
-          CustomTextTitleAuth(
+        child: ListView(children: [
+          const LogoAuth(),
+          const CustomTextTitleAuth(
             text: "Welcome Back",
           ),
-          SizedBox(height: 10),
-          CustomTextBodyAuth(
+          const SizedBox(height: 10),
+          const CustomTextBodyAuth(
               text:
                   "Sign In With Your Email And Password OR Continue With Social Media"),
-          SizedBox(height: 65),
-          CustomTextFormAuth(
+          const SizedBox(height: 15),
+          const CustomTextFormAuth(
             hinttext: "Enter Your Email",
             iconData: Icons.email_outlined,
             labeltext: "Email",
             // mycontroller:
           ),
-          CustomTextFormAuth(
+          const CustomTextFormAuth(
             hinttext: "Enter Your Password",
             iconData: Icons.lock_outline,
             labeltext: "Password",
             // mycontroller:
+          ),
+          const Text(
+            "Forget Password",
+            textAlign: TextAlign.end,
+          ),
+          CustomButtonAuth(text: "Sign In", onPressed: () {}),
+          const SizedBox(height: 30),
+          const Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text("Don't Have An Account?"),
+              InkWell(
+                  child: Text(
+                "Sign Up",
+                style: TextStyle(
+                    color: AppColor.primaryColor, fontWeight: FontWeight.bold),
+              ))
+            ],
           )
         ]),
       ),
