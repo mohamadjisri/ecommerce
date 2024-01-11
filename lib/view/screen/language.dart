@@ -1,11 +1,8 @@
-import 'package:ecommerce/core/constant/color.dart';
 import 'package:ecommerce/core/constant/routes.dart';
 import 'package:ecommerce/core/localization/changelocal.dart';
 import 'package:ecommerce/view/widget/language/custombuttonlang.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_utils/get_utils.dart';
-import 'package:path/path.dart';
 
 class Language extends GetView<LocaleController> {
   const Language({super.key});
