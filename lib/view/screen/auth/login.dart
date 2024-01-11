@@ -1,4 +1,7 @@
 import 'package:ecommerce/core/constant/color.dart';
+import 'package:ecommerce/view/widget/auth/customtextbodyauth.dart';
+import 'package:ecommerce/view/widget/auth/customtextformauth.dart';
+import 'package:ecommerce/view/widget/auth/customtexttitleauth.dart';
 import 'package:flutter/material.dart';
 
 class Login extends StatelessWidget {
@@ -18,33 +21,28 @@ class Login extends StatelessWidget {
                 .copyWith(color: AppColor.grey)),
       ),
       body: Container(
-        padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 35),
-        child: ListView(children: [
-          const SizedBox(height: 20),
-          Text(
-            "Welcome Back",
-            textAlign: TextAlign.center,
-            style: Theme.of(context).textTheme.displayMedium,
+        padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 30),
+        child: ListView(children: const [
+          SizedBox(height: 20),
+          CustomTextTitleAuth(
+            text: "Welcome Back",
           ),
-          const SizedBox(height: 10),
-          Container(
-            margin: const EdgeInsets.symmetric(horizontal: 25),
-            child: Text(
-              "Sign In With Your Email And Password OR Continue With Social Media",
-              textAlign: TextAlign.center,
-              style: Theme.of(context).textTheme.displayMedium,
-            ),
+          SizedBox(height: 10),
+          CustomTextBodyAuth(
+              text:
+                  "Sign In With Your Email And Password OR Continue With Social Media"),
+          SizedBox(height: 65),
+          CustomTextFormAuth(
+            hinttext: "Enter Your Email",
+            iconData: Icons.email_outlined,
+            labeltext: "Email",
+            // mycontroller:
           ),
-          const SizedBox(height: 25),
-          TextFormField(
-            decoration: InputDecoration(
-                floatingLabelBehavior: FloatingLabelBehavior.always,
-                contentPadding:
-                    const EdgeInsets.symmetric(vertical: 5, horizontal: 30),
-                label: const Text("Email"),
-                suffixIcon: const Icon(Icons.email_outlined),
-                border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(30))),
+          CustomTextFormAuth(
+            hinttext: "Enter Your Password",
+            iconData: Icons.lock_outline,
+            labeltext: "Password",
+            // mycontroller:
           )
         ]),
       ),
