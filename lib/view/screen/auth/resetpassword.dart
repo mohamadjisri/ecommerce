@@ -1,3 +1,4 @@
+import 'package:ecommerce/controller/auth/resetpassword_controller.dart';
 import 'package:ecommerce/core/constant/color.dart';
 import 'package:ecommerce/view/widget/auth/custombuttonauth.dart';
 import 'package:ecommerce/view/widget/auth/customtextbodyauth.dart';
@@ -18,7 +19,7 @@ class ResetPassword extends StatelessWidget {
         centerTitle: true,
         backgroundColor: AppColor.backgroundcolor,
         elevation: 0.0,
-        title: Text('Forget Password',
+        title: Text('Reset Password',
             style: Theme.of(context)
                 .textTheme
                 .displayLarge!
@@ -28,21 +29,35 @@ class ResetPassword extends StatelessWidget {
         padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 30),
         child: ListView(children: [
           const CustomTextTitleAuth(
-            text: "Check Email",
+            text: "New Password",
           ),
           const SizedBox(height: 10),
           const CustomTextBodyAuth(
               text:
-                  "Sign Up With Your Email And Password OR Continue With Social Media"),
+                  "Please Enter New Password"),
           const SizedBox(height: 15),
           CustomTextFormAuth(
-            mycontroller: controller.email,
-            hinttext: "Enter Your Email",
-            iconData: Icons.email_outlined,
-            labeltext: "Email",
+            mycontroller: controller.password,
+            hinttext: "Enter Your Password",
+            iconData: Icons.lock_outline,
+            labeltext: "Password",
             // mycontroller:
           ),
-          CustomButtonAuth(text: "Check", onPressed: () {}),
+          CustomTextFormAuth(
+            mycontroller: controller.password,
+            hinttext: "Enter Your Password",
+            iconData: Icons.lock_outline,
+            labeltext: "Password",
+            // mycontroller:
+          ),
+          CustomTextFormAuth(
+            mycontroller: controller.password,
+            hinttext: "Re Enter Your Password",
+            iconData: Icons.lock_outline,
+            labeltext: "Password",
+            // mycontroller:
+          ),
+          CustomButtonAuth(text: "Save", onPressed: () {}),
           const SizedBox(height: 40),
         ]),
       ),
