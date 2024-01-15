@@ -16,14 +16,13 @@ class ResetPasswordControllerImp extends ResetPasswordController {
 
   @override
   goToSuccessResetPassword() {
-    Get.offNamed(AppRoute.verifyCode);
+    Get.offNamed(AppRoute.successResetPassword);
   }
 
   @override
   void onInit() {
     password = TextEditingController();
     repassword = TextEditingController();
-
 
     super.onInit();
   }

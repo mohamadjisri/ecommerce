@@ -11,24 +11,22 @@ class Test extends StatelessWidget {
           title: const Text('Test'),
         ),
         body: Container(
-          padding: EdgeInsets.all(20),
+          padding: const EdgeInsets.all(20),
           child: ListView(children: [
             OtpTextField(
               fieldWidth: 5,
               borderRadius: BorderRadius.circular(20),
-        numberOfFields: 5,
-        borderColor: Color(0xFF512DA8),
-        //set to true to show as box or false to show as dash
-        showFieldAsBox: true, 
-        //runs when a code is typed in
-        onCodeChanged: (String code) {
-            //handle validation or checks here           
-        },
-        //runs when every textfield is filled
-        onSubmit: (String verificationCode){
-            
-        }, // end onSubmit
-    ),
+              numberOfFields: 5,
+              borderColor: const Color(0xFF512DA8),
+              //set to true to show as box or false to show as dash
+              showFieldAsBox: true,
+              //runs when a code is typed in
+              onCodeChanged: (String code) {
+                //handle validation or checks here
+              },
+              //runs when every textfield is filled
+              onSubmit: (String verificationCode) {}, // end onSubmit
+            ),
           ]),
         ));
   }

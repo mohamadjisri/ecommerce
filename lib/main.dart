@@ -52,9 +52,9 @@ class MyApp extends StatelessWidget {
                 fontSize: 14)),
         primarySwatch: Colors.blue,
       ),
-      home: 
-      // const Test(),
-      const Language(),
+      home:
+          // const Test(),
+          const Language(),
       routes: routes,
     );
   }
