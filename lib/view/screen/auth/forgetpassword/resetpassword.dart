@@ -28,11 +28,11 @@ class ResetPassword extends StatelessWidget {
       body: Container(
         padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 30),
         child: ListView(children: [
-           CustomTextTitleAuth(
+          CustomTextTitleAuth(
             text: "35".tr,
           ),
           const SizedBox(height: 10),
-           CustomTextBodyAuth(text: "35".tr),
+          CustomTextBodyAuth(text: "35".tr),
           const SizedBox(height: 15),
           CustomTextFormAuth(
             mycontroller: controller.password,

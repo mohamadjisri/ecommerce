@@ -7,6 +7,7 @@ import 'package:ecommerce/view/screen/auth/signup.dart';
 import 'package:ecommerce/view/screen/auth/forgetpassword/success_resetpassword.dart';
 import 'package:ecommerce/view/screen/auth/success_signup.dart';
 import 'package:ecommerce/view/screen/auth/forgetpassword/verifycode.dart';
+import 'package:ecommerce/view/screen/auth/verifycodesignup.dart';
 import 'package:ecommerce/view/screen/onboarding.dart';
 import 'package:flutter/material.dart';
 
@@ -22,4 +23,5 @@ Map<String, Widget Function(BuildContext)> routes = {
   AppRoute.successSignUp: (context) => const SuccessSignUp(),
   // Onboarding
   AppRoute.onBoarding: (context) => const OnBoarding(),
+  AppRoute.verifyCodeSignUp: (context) => const VerifyCodeSignUp(),
 };
