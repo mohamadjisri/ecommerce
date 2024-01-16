@@ -19,7 +19,7 @@ class SignUp extends StatelessWidget {
         centerTitle: true,
         backgroundColor: AppColor.backgroundcolor,
         elevation: 0.0,
-        title: Text('Sign Up',
+        title: Text('17'.tr,
             style: Theme.of(context)
                 .textTheme
                 .displayLarge!
@@ -28,8 +28,8 @@ class SignUp extends StatelessWidget {
       body: Container(
         padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 30),
         child: ListView(children: [
-          const CustomTextTitleAuth(
-            text: "Welcome Back",
+          CustomTextTitleAuth(
+            text: "10".tr,
           ),
           const SizedBox(height: 10),
           const CustomTextBodyAuth(
@@ -38,41 +38,41 @@ class SignUp extends StatelessWidget {
           const SizedBox(height: 15),
           CustomTextFormAuth(
             mycontroller: controller.username,
-            hinttext: "Enter Your Username",
+            hinttext: "23".tr,
             iconData: Icons.person_outline,
-            labeltext: "Username",
+            labeltext: "20".tr,
             // mycontroller:
           ),
           CustomTextFormAuth(
             mycontroller: controller.email,
-            hinttext: "Enter Your Email",
+            hinttext: "12".tr,
             iconData: Icons.email_outlined,
-            labeltext: "Email",
+            labeltext: "18".tr,
             // mycontroller:
           ),
           CustomTextFormAuth(
             mycontroller: controller.phone,
-            hinttext: "Enter Your Phone",
+            hinttext: "22".tr,
             iconData: Icons.phone,
-            labeltext: "Phone",
+            labeltext: "21".tr,
             // mycontroller:
           ),
           CustomTextFormAuth(
             mycontroller: controller.password,
-            hinttext: "Enter Your Password",
+            hinttext: "13".tr,
             iconData: Icons.lock_outline,
-            labeltext: "Password",
+            labeltext: "19".tr,
             // mycontroller:
           ),
           CustomButtonAuth(
-              text: "Sign Up",
+              text: "17".tr,
               onPressed: () {
                 controller.signUp();
               }),
           const SizedBox(height: 40),
           CustomTextSignUpOrSignIn(
-              textone: "Have An Account? ",
-              texttwo: " Sign In",
+              textone: "25".tr,
+              texttwo: "26".tr,
               onTap: () {
                 controller.goToSignIn();
               }),

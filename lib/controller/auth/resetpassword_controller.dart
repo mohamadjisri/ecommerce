@@ -1,9 +1,9 @@
 import 'package:ecommerce/core/constant/routes.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
 abstract class ResetPasswordController extends GetxController {
-  resetPassword();
+  resetpassword();
   goToSuccessResetPassword();
 }
 
@@ -12,7 +12,7 @@ class ResetPasswordControllerImp extends ResetPasswordController {
   late TextEditingController repassword;
 
   @override
-  resetPassword() {}
+  resetpassword() {}
 
   @override
   goToSuccessResetPassword() {
@@ -23,7 +23,6 @@ class ResetPasswordControllerImp extends ResetPasswordController {
   void onInit() {
     password = TextEditingController();
     repassword = TextEditingController();
-
     super.onInit();
   }
 
@@ -31,7 +30,6 @@ class ResetPasswordControllerImp extends ResetPasswordController {
   void dispose() {
     password.dispose();
     repassword.dispose();
-
     super.dispose();
   }
 }

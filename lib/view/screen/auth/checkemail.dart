@@ -1,4 +1,4 @@
-import 'package:ecommerce/controller/auth/CheckEmail_controller.dart';
+import 'package:ecommerce/controller/auth/checkemail_controller.dart';
 import 'package:ecommerce/core/constant/color.dart';
 import 'package:ecommerce/view/widget/auth/custombuttonauth.dart';
 import 'package:ecommerce/view/widget/auth/customtextbodyauth.dart';
@@ -18,7 +18,7 @@ class CheckEmail extends StatelessWidget {
         centerTitle: true,
         backgroundColor: AppColor.backgroundcolor,
         elevation: 0.0,
-        title: Text('Check Email',
+        title: Text('27'.tr,
             style: Theme.of(context)
                 .textTheme
                 .displayLarge!
@@ -27,26 +27,20 @@ class CheckEmail extends StatelessWidget {
       body: Container(
         padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 30),
         child: ListView(children: [
-          const SizedBox(
-            height: 20,
-          ),
-          const CustomTextTitleAuth(
-            text: "Success Sign Up",
-          ),
+          const SizedBox(height: 20),
+          CustomTextTitleAuth(text: "28".tr),
           const SizedBox(height: 10),
-          const CustomTextBodyAuth(
-              text:
-                  "Please Enter Your Email Address To Recieve A Verification Code"),
+          CustomTextBodyAuth(text: "29".tr),
           const SizedBox(height: 15),
           CustomTextFormAuth(
             mycontroller: controller.email,
-            hinttext: "Enter Your Email",
+            hinttext: "12".tr,
             iconData: Icons.email_outlined,
-            labeltext: "Email",
-            // mycontroller:
+            labeltext: "18".tr,
+            // mycontroller: ,
           ),
           CustomButtonAuth(
-              text: "Check",
+              text: "30".tr,
               onPressed: () {
                 controller.goToSuccessSignUp();
               }),
