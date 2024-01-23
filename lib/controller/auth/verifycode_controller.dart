@@ -21,5 +21,4 @@ class VerifyCodeControllerImp extends VerifyCodeController {
   void onInit() {
     super.onInit();
   }
-
 }
