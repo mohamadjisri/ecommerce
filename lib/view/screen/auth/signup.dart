@@ -1,5 +1,6 @@
 import 'package:ecommerce/controller/auth/signup_controller.dart';
 import 'package:ecommerce/core/constant/color.dart';
+import 'package:ecommerce/core/functions/alertexitapp.dart';
 import 'package:ecommerce/core/functions/validinput.dart';
 import 'package:ecommerce/view/widget/auth/custombuttonauth.dart';
 import 'package:ecommerce/view/widget/auth/customtextbodyauth.dart';
@@ -14,20 +15,21 @@ class SignUp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Get.lazyPut(() => SignUpControllerImp());
+    SignUpControllerImp controller = Get.put(SignUpControllerImp());
     return Scaffold(
-        appBar: AppBar(
-          centerTitle: true,
-          backgroundColor: AppColor.backgroundcolor,
-          elevation: 0.0,
-          title: Text('17'.tr,
-              style: Theme.of(context)
-                  .textTheme
-                  .displayLarge!
-                  .copyWith(color: AppColor.grey)),
-        ),
-        body: GetBuilder<SignUpControllerImp>(
-          builder: (controller) => Container(
+      appBar: AppBar(
+        centerTitle: true,
+        backgroundColor: AppColor.backgroundcolor,
+        elevation: 0.0,
+        title: Text('17'.tr,
+            style: Theme.of(context)
+                .textTheme
+                .bodyLarge!
+                .copyWith(color: AppColor.grey)),
+      ),
+      body: WillPopScope(
+          onWillPop: alertExitApp,
+          child: Container(
             padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 30),
             child: Form(
               key: controller.formstate,
@@ -39,7 +41,6 @@ class SignUp extends StatelessWidget {
                 const SizedBox(height: 15),
                 CustomTextFormAuth(
                   isNumber: false,
-
                   valid: (val) {
                     return validInput(val!, 3, 20, "username");
                   },
@@ -99,7 +100,7 @@ class SignUp extends StatelessWidget {
                 ),
               ]),
             ),
-          ),
-        ));
+          )),
+    );
   }
 }
