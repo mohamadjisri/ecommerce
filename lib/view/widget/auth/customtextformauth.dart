@@ -31,6 +31,7 @@ class CustomTextFormAuth extends StatelessWidget {
             : TextInputType.text,
         validator: valid,
         controller: mycontroller,
+        //Hide and show password
         obscureText: obscureText == null || obscureText == false  ? false : true,
         decoration: InputDecoration(
             hintText: hinttext,
