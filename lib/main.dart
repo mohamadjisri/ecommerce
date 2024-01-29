@@ -1,3 +1,4 @@
+import 'package:ecommerce/bindings/initialbindings.dart';
 import 'package:ecommerce/core/localization/translation.dart';
 import 'package:ecommerce/core/services/services.dart';
 import 'package:ecommerce/routes.dart';
@@ -22,7 +23,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       locale: controller.language,
       theme: controller.appTheme, 
-      initialBinding: ,
+      initialBinding: InitialBindingds(),
       // routes: routes,
       getPages: routes,
     );
