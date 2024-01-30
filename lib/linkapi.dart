@@ -4,9 +4,6 @@ class AppLink {
 
   // ======================= AUTH ====================== //
 
-
   static const String signUp = "$server/auth/signup.php";
-
-
-
+  static const String verifycodessignup = "$server/auth/verifycode.php";
 }

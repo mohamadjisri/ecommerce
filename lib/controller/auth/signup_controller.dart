@@ -35,9 +35,8 @@ class SignUpControllerImp extends SignUpController {
       if (StatusRequest.success == statusRequest) {
         if (response['status'] == "success") {
           // data.addAll(response['data']);
-          Get.offNamed(AppRoute.verifyCodeSignUp, arguments: {
-            "email" : email.text
-          });
+          Get.offNamed(AppRoute.verifyCodeSignUp,
+              arguments: {"email": email.text});
         } else {
           Get.defaultDialog(
               title: "Warning",

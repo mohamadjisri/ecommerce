@@ -6,13 +6,11 @@ import 'package:get/get.dart';
 
 abstract class VerifyCodeSignUpController extends GetxController {
   checkCode();
-  goToSuccessSignUp();
+  goToSuccessSignUp(String verifyCodeSignUp);
 }
 
 class VerifyCodeSignUpControllerImp extends VerifyCodeSignUpController {
   VerifyCodeSignUpData verifyCodeSignUpData = VerifyCodeSignUpData(Get.find());
-
-  late String verifycode;
 
   String? email;
 
@@ -22,10 +20,11 @@ class VerifyCodeSignUpControllerImp extends VerifyCodeSignUpController {
   checkCode() {}
 
   @override
-  goToSuccessSignUp() async {
+  goToSuccessSignUp(verifyCodeSignUp) async {
     statusRequest = StatusRequest.loading;
     update();
-    var response = await verifyCodeSignUpData.postdata(email!, verifycode);
+    var response =
+        await verifyCodeSignUpData.postdata(email!, verifyCodeSignUp);
     print("=================== Controller $response");
     statusRequest = handlingData(response);
     if (StatusRequest.success == statusRequest) {
