@@ -1,4 +1,7 @@
+import 'package:ecommerce/core/class/statusrequest.dart';
 import 'package:ecommerce/core/constant/routes.dart';
+import 'package:ecommerce/core/functions/handlingdatacontroller.dart';
+import 'package:ecommerce/data/datasource/remote/auth/signup.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -14,10 +17,32 @@ class SignUpControllerImp extends SignUpController {
   late TextEditingController phone;
   late TextEditingController password;
 
+  late StatusRequest statusRequest;
+
+  SignupData signupData = SignupData(Get.find());
+
+  List data = [];
+
   @override
-  signUp() {
+  signUp() async {
     if (formstate.currentState!.validate()) {
-      Get.offNamed(AppRoute.verifyCodeSignUp);
+      statusRequest = StatusRequest.loading;
+      var response = await signupData.postdata(
+          username.text, password.text, email.text, phone.text);
+      print("=================== Controller $response");
+      statusRequest = handlingData(response);
+      if (StatusRequest.success == statusRequest) {
+        if (response['status'] == "success") {
+          data.addAll(response['data']);
+          Get.offNamed(AppRoute.verifyCodeSignUp);
+        } else {
+          Get.defaultDialog(
+              title: "Warning",
+              middleText: "Phone Number Or Email Already Exists");
+          statusRequest = StatusRequest.failure;
+        }
+      }
+      update();
     } else {}
   }
 
