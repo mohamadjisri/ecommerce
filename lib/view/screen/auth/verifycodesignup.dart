@@ -1,4 +1,5 @@
 import 'package:ecommerce/controller/auth/verifycodesignup_controller.dart';
+import 'package:ecommerce/core/class/statusrequest.dart';
 import 'package:ecommerce/core/constant/color.dart';
 import 'package:ecommerce/view/widget/auth/customtextbodyauth.dart';
 import 'package:ecommerce/view/widget/auth/customtexttitleauth.dart';
@@ -11,8 +12,7 @@ class VerifyCodeSignUp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    VerifyCodeSignUpControllerImp controller =
-        Get.put(VerifyCodeSignUpControllerImp());
+    Get.put(VerifyCodeSignUpControllerImp());
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -24,35 +24,42 @@ class VerifyCodeSignUp extends StatelessWidget {
                 .displayLarge!
                 .copyWith(color: AppColor.grey)),
       ),
-      body: Container(
-        padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 30),
-        child: ListView(children: [
-          const CustomTextTitleAuth(
-            text: "Check Code",
-          ),
-          const SizedBox(height: 10),
-          const CustomTextBodyAuth(
-              text: "Please Enter The Digit Code Sent To Your Email"),
-          const SizedBox(height: 15),
-          OtpTextField(
-            fieldWidth: 50.0,
-            borderRadius: BorderRadius.circular(20),
-            numberOfFields: 5,
-            borderColor: const Color(0xFF512DA8),
-            //set to true to show as box or false to show as dash
-            showFieldAsBox: true,
-            //runs when a code is typed in
-            onCodeChanged: (String code) {
-              //handle validation or checks here
-            },
-            //runs when every textfield is filled
-            onSubmit: (String verificationCode) {
-              controller.goToSuccessSignUp();
-            }, // end onSubmit
-          ),
-          const SizedBox(height: 40),
-        ]),
-      ),
+      body: GetBuilder<VerifyCodeSignUpControllerImp>(
+          builder: (controller) => controller.statusRequest ==
+                  StatusRequest.loading
+              ? const Center(
+                  child: Text("Loading ...."),
+                )
+              : Container(
+                  padding:
+                      const EdgeInsets.symmetric(vertical: 15, horizontal: 30),
+                  child: ListView(children: [
+                    const CustomTextTitleAuth(
+                      text: "Check Code",
+                    ),
+                    const SizedBox(height: 10),
+                    const CustomTextBodyAuth(
+                        text: "Please Enter The Digit Code Sent To Your Email"),
+                    const SizedBox(height: 15),
+                    OtpTextField(
+                      fieldWidth: 50.0,
+                      borderRadius: BorderRadius.circular(20),
+                      numberOfFields: 5,
+                      borderColor: const Color(0xFF512DA8),
+                      //set to true to show as box or false to show as dash
+                      showFieldAsBox: true,
+                      //runs when a code is typed in
+                      onCodeChanged: (String code) {
+                        //handle validation or checks here
+                      },
+                      //runs when every textfield is filled
+                      onSubmit: (String verificationCode) {
+                        controller.goToSuccessSignUp();
+                      }, // end onSubmit
+                    ),
+                    const SizedBox(height: 40),
+                  ]),
+                )),
     );
   }
 }
