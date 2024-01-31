@@ -1,4 +1,5 @@
 import 'package:ecommerce/core/constant/routes.dart';
+import 'package:ecommerce/data/datasource/remote/forgetpassword/verifycode.dart';
 import 'package:get/get.dart';
 
 abstract class VerifyCodeController extends GetxController {
@@ -7,7 +8,10 @@ abstract class VerifyCodeController extends GetxController {
 }
 
 class VerifyCodeControllerImp extends VerifyCodeController {
-  late String verifycode;
+  String? email;
+
+  VerifyCodeForgetPasswordData verifyCodeForgetPasswordData =
+      VerifyCodeForgetPasswordData(Get.find());
 
   @override
   checkCode() {}
@@ -19,6 +23,7 @@ class VerifyCodeControllerImp extends VerifyCodeController {
 
   @override
   void onInit() {
+    email = Get.arguments['email'];
     super.onInit();
   }
 }

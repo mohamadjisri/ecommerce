@@ -1,4 +1,4 @@
-import 'package:ecommerce/controller/auth/forgetpassword_controller.dart';
+import 'package:ecommerce/controller/forgetpassword/forgetpassword_controller.dart';
 import 'package:ecommerce/core/constant/color.dart';
 import 'package:ecommerce/view/widget/auth/custombuttonauth.dart';
 import 'package:ecommerce/view/widget/auth/customtextbodyauth.dart';
@@ -31,12 +31,12 @@ class ForgetPassword extends StatelessWidget {
           key: controller.formstate,
           child: ListView(children: [
             const SizedBox(height: 20),
-           CustomTextTitleAuth(
-            text: "27".tr,
-          ),
-          const SizedBox(height: 10),
-           CustomTextBodyAuth(
-              // please Enter Your Email Address To Recive A verification code
+            CustomTextTitleAuth(
+              text: "27".tr,
+            ),
+            const SizedBox(height: 10),
+            CustomTextBodyAuth(
+                // please Enter Your Email Address To Recive A verification code
                 text: "29".tr),
             const SizedBox(height: 15),
             CustomTextFormAuth(
@@ -51,7 +51,7 @@ class ForgetPassword extends StatelessWidget {
             CustomButtonAuth(
                 text: "30".tr,
                 onPressed: () {
-                  controller.goToVerifyCode();
+                  controller.checkEmail();
                 }),
             const SizedBox(height: 40),
           ]),
