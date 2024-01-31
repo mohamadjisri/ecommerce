@@ -1,10 +1,13 @@
+import 'package:ecommerce/core/class/statusrequest.dart';
 import 'package:ecommerce/core/constant/routes.dart';
+import 'package:ecommerce/core/functions/handlingdatacontroller.dart';
 import 'package:ecommerce/data/datasource/remote/forgetpassword/verifycode.dart';
+import 'package:ecommerce/view/screen/auth/forgetpassword/verifycode.dart';
 import 'package:get/get.dart';
 
 abstract class VerifyCodeController extends GetxController {
   checkCode();
-  goToResetPassword();
+  goToResetPassword(String verifycode);
 }
 
 class VerifyCodeControllerImp extends VerifyCodeController {
@@ -13,12 +16,29 @@ class VerifyCodeControllerImp extends VerifyCodeController {
   VerifyCodeForgetPasswordData verifyCodeForgetPasswordData =
       VerifyCodeForgetPasswordData(Get.find());
 
+  StatusRequest? statusRequest;
+
   @override
   checkCode() {}
 
   @override
-  goToResetPassword() {
-    Get.offNamed(AppRoute.resetPassword);
+  goToResetPassword(verifycode) async {
+    statusRequest = StatusRequest.loading;
+    update();
+    var response =
+        await verifyCodeForgetPasswordData.postdata(email!, verifycode);
+    print("=================== Controller $response");
+    statusRequest = handlingData(response);
+    if (StatusRequest.success == statusRequest) {
+      if (response['status'] == "success") {
+        Get.offNamed(AppRoute.resetPassword, arguments: {"email": email});
+      } else {
+        Get.defaultDialog(
+            title: "Warning", middleText: "Verify Code Not Correct");
+        statusRequest = StatusRequest.failure;
+      }
+    }
+    update();
   }
 
   @override

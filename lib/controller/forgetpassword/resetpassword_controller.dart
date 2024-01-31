@@ -1,4 +1,7 @@
+import 'package:ecommerce/core/class/statusrequest.dart';
 import 'package:ecommerce/core/constant/routes.dart';
+import 'package:ecommerce/core/functions/handlingdatacontroller.dart';
+import 'package:ecommerce/data/datasource/remote/forgetpassword/resetpassword.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
@@ -10,16 +13,40 @@ abstract class ResetPasswordController extends GetxController {
 class ResetPasswordControllerImp extends ResetPasswordController {
   GlobalKey<FormState> formstate = GlobalKey<FormState>();
 
+  ResetPasswordData resetPasswordData = ResetPasswordData(Get.find());
+
+  StatusRequest? statusRequest;
+
   late TextEditingController password;
   late TextEditingController repassword;
+
+  String? email;
 
   @override
   resetpassword() {}
 
   @override
-  goToSuccessResetPassword() {
+  goToSuccessResetPassword() async {
+    if (password.text != repassword.text) {
+      return Get.defaultDialog(
+          title: "Warning", middleText: "Password Not Match");
+    }
     if (formstate.currentState!.validate()) {
-      Get.offNamed(AppRoute.successResetPassword);
+      statusRequest = StatusRequest.loading;
+      update();
+      var response = await resetPasswordData.postdata(email!, password.text);
+      print("=================== Controller $response");
+      statusRequest = handlingData(response);
+      if (StatusRequest.success == statusRequest) {
+        if (response['status'] == "success") {
+          // data.addAll(response['data']);
+          Get.offNamed(AppRoute.successResetPassword);
+        } else {
+          Get.defaultDialog(title: "Warning", middleText: "Try Again");
+          statusRequest = StatusRequest.failure;
+        }
+      }
+      update();
     } else {
       print("Not Valid");
     }
@@ -27,6 +54,7 @@ class ResetPasswordControllerImp extends ResetPasswordController {
 
   @override
   void onInit() {
+    email = Get.arguments['email'];
     password = TextEditingController();
     repassword = TextEditingController();
     super.onInit();
