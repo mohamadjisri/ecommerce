@@ -2,7 +2,6 @@ import 'package:ecommerce/core/class/statusrequest.dart';
 import 'package:ecommerce/core/constant/routes.dart';
 import 'package:ecommerce/core/functions/handlingdatacontroller.dart';
 import 'package:ecommerce/data/datasource/remote/forgetpassword/verifycode.dart';
-import 'package:ecommerce/view/screen/auth/forgetpassword/verifycode.dart';
 import 'package:get/get.dart';
 
 abstract class VerifyCodeController extends GetxController {
@@ -16,7 +15,7 @@ class VerifyCodeControllerImp extends VerifyCodeController {
   VerifyCodeForgetPasswordData verifyCodeForgetPasswordData =
       VerifyCodeForgetPasswordData(Get.find());
 
-  StatusRequest? statusRequest;
+  StatusRequest statusRequest = StatusRequest.none;
 
   @override
   checkCode() {}
