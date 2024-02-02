@@ -1,6 +1,7 @@
 import 'package:ecommerce/core/class/statusrequest.dart';
 import 'package:ecommerce/core/constant/routes.dart';
 import 'package:ecommerce/core/functions/handlingdatacontroller.dart';
+import 'package:ecommerce/core/services/services.dart';
 import 'package:ecommerce/data/datasource/remote/auth/login.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
@@ -21,6 +22,8 @@ class LoginControllerImp extends LoginController {
 
   bool isshowpassword = true;
 
+  MyServices myServices = Get.find();
+
   StatusRequest statusRequest = StatusRequest.none;
 
   showPassword() {
@@ -39,6 +42,15 @@ class LoginControllerImp extends LoginController {
       if (StatusRequest.success == statusRequest) {
         if (response['status'] == "success") {
           // data.addAll(response['data']);
+          myServices.sharedPreferences
+              .setString("id", response['data']['users_id']);
+          myServices.sharedPreferences
+              .setString("username", response['data']['users_name']);
+          myServices.sharedPreferences
+              .setString("email", response['data']['users_email']);
+          myServices.sharedPreferences
+              .setString("phone", response['data']['users_phone']);
+          myServices.sharedPreferences.setString("step", "2");
           Get.offNamed(AppRoute.homepage);
         } else {
           Get.defaultDialog(
