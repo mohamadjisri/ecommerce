@@ -76,10 +76,7 @@ class HomePage extends StatelessWidget {
                 ]),
               ),
 
-              Container(child: ListView.builder(),)
-              
               // Container(child: ListView.builder(),)
-
             ],
           )),
     );
