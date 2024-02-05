@@ -1,5 +1,13 @@
 class AppLink {
   static const String server = "https://ecommercethesis.shop/ecommerce";
+
+  static const String imageststatic =
+      "https://ecommercethesis.shop/ecommerce/upload";
+//========================== Image ============================
+  static const String imagestCategories = "$imageststatic/categories";
+  static const String imagestItems = "$imageststatic/items";
+// =============================================================
+
   static const String test = "$server/test.php";
 
   // ======================= AUTH ====================== //

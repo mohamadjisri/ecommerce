@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 class InitialBindingds extends Bindings {
   @override
   void dependencies() {
+    //start
     Get.put(Crud());
   }
 }
