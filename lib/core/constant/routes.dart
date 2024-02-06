@@ -6,9 +6,9 @@ class AppRoute {
   static const String verifyCode = "/verifycode";
   static const String resetPassword = "/resetpassword";
   static const String successSignUp = "/successsignup";
-  static const String successResetPassword = "/successresetpassword";
-  static const String checkEmail = "/checkemail";
+  static const String successResetpassword = "/successresetpassword";
+  static const String checkemail = "/checkemail";
   static const String verifyCodeSignUp = "/verifycodesignup";
-  //Home
+  // Home
   static const String homepage = "/homepage";
 }
