@@ -19,6 +19,7 @@ class HomeControllerImp extends HomeController {
 
   // List data = [];
   List categories = [];
+  List items = [];
   // List items = [];
 
   late StatusRequest statusRequest;
@@ -45,6 +46,7 @@ class HomeControllerImp extends HomeController {
     if (StatusRequest.success == statusRequest) {
       if (response['status'] == "success") {
         categories.addAll(response['categories']);
+        items.addAll(response['items']);
       } else {
         statusRequest = StatusRequest.failure;
       }
