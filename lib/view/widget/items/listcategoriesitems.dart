@@ -1,5 +1,6 @@
 import 'package:ecommerce/controller/items_controller.dart';
 import 'package:ecommerce/core/constant/color.dart';
+import 'package:ecommerce/core/functions/translatedatabase.dart';
 import 'package:ecommerce/data/model/categoriesmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -52,7 +53,7 @@ class Categories extends GetView<ItemsControllerImp> {
                                     width: 3, color: AppColor.primaryColor)))
                         : null,
                     child: Text(
-                      "${categoriesModel.categoriesName}",
+                      "${translateDatabase(categoriesModel.categoriesNamaAr, categoriesModel.categoriesName)}",
                       style:
                           const TextStyle(fontSize: 20, color: AppColor.grey2),
                     ),
