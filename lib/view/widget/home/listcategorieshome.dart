@@ -19,6 +19,7 @@ class ListCategoriesHome extends GetView<HomeControllerImp> {
         scrollDirection: Axis.horizontal,
         itemBuilder: (context, index) {
           return Categories(
+            i: index,
             categoriesModel:
                 CategoriesModel.fromJson(controller.categories[index]),
           );
@@ -28,30 +29,37 @@ class ListCategoriesHome extends GetView<HomeControllerImp> {
   }
 }
 
-class Categories extends StatelessWidget {
+class Categories extends GetView<HomeControllerImp> {
   final CategoriesModel categoriesModel;
-  const Categories({super.key, required this.categoriesModel});
+  final int? i;
+  const Categories({super.key, required this.categoriesModel, required this.i});
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Container(
-          decoration: BoxDecoration(
-              color: AppColor.thirdColor,
-              borderRadius: BorderRadius.circular(20)),
-          padding: const EdgeInsets.symmetric(horizontal: 10),
-          height: 70,
-          width: 70,
-          child: SvgPicture.network(
-              "${AppLink.imagestCategories}/${categoriesModel.categoriesImage}",
-              color: AppColor.secondColor),
-        ),
-        Text(
-          "${categoriesModel.categoriesName}",
-          style: const TextStyle(fontSize: 13, color: AppColor.black),
-        )
-      ],
+    return InkWell(
+      onTap: () {
+        controller.goToItems(
+            controller.categories, i!, categoriesModel.categoriesId!);
+      },
+      child: Column(
+        children: [
+          Container(
+            decoration: BoxDecoration(
+                color: AppColor.thirdColor,
+                borderRadius: BorderRadius.circular(20)),
+            padding: const EdgeInsets.symmetric(horizontal: 10),
+            height: 70,
+            width: 70,
+            child: SvgPicture.network(
+                "${AppLink.imagestCategories}/${categoriesModel.categoriesImage}",
+                color: AppColor.secondColor),
+          ),
+          Text(
+            "${categoriesModel.categoriesName}",
+            style: const TextStyle(fontSize: 13, color: AppColor.black),
+          )
+        ],
+      ),
     );
   }
 }

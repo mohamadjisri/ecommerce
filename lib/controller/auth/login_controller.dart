@@ -4,7 +4,7 @@ import 'package:ecommerce/core/functions/handlingdatacontroller.dart';
 import 'package:ecommerce/core/services/services.dart';
 import 'package:ecommerce/data/datasource/remote/auth/login.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
 abstract class LoginController extends GetxController {
@@ -17,6 +17,7 @@ class LoginControllerImp extends LoginController {
   LoginData loginData = LoginData(Get.find());
 
   GlobalKey<FormState> formstate = GlobalKey<FormState>();
+
   late TextEditingController email;
   late TextEditingController password;
 
@@ -37,7 +38,7 @@ class LoginControllerImp extends LoginController {
       statusRequest = StatusRequest.loading;
       update();
       var response = await loginData.postdata(email.text, password.text);
-      print("=================== Controller $response");
+      print("=============================== Controller $response ");
       statusRequest = handlingData(response);
       if (StatusRequest.success == statusRequest) {
         if (response['status'] == "success") {
@@ -54,7 +55,7 @@ class LoginControllerImp extends LoginController {
           Get.offNamed(AppRoute.homepage);
         } else {
           Get.defaultDialog(
-              title: "Warning", middleText: "Email Or Password Not Correct");
+              title: "ُWarning", middleText: "Email Or Password Not Correct");
           statusRequest = StatusRequest.failure;
         }
       }
@@ -73,7 +74,6 @@ class LoginControllerImp extends LoginController {
       print(value);
       String? token = value;
     });
-
     email = TextEditingController();
     password = TextEditingController();
     super.onInit();

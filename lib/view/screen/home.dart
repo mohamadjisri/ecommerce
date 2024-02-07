@@ -5,7 +5,6 @@ import 'package:ecommerce/view/widget/home/customcardhome.dart';
 import 'package:ecommerce/view/widget/home/customtitlehome.dart';
 import 'package:ecommerce/view/widget/home/listcategorieshome.dart';
 import 'package:ecommerce/view/widget/home/listitemshome.dart';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -32,8 +31,8 @@ class HomePage extends StatelessWidget {
                     const ListCategoriesHome(),
                     const CustomTitleHome(title: "Product for you"),
                     const ListItemsHome(),
-                    const CustomTitleHome(title: "Offer"),
-                    const ListItemsHome()
+                    // const CustomTitleHome(title: "Offer"),
+                    // const ListItemsHome()
                   ],
                 ))));
   }
