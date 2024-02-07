@@ -5,6 +5,7 @@ import 'package:ecommerce/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'core/localization/changelocal.dart';
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await initialServices();
@@ -19,9 +20,9 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       translations: MyTranslation(),
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      title: 'Ecommerce',
       locale: controller.language,
-      theme: controller.appTheme, 
+      theme: controller.appTheme,
       initialBinding: InitialBindingds(),
       // routes: routes,
       getPages: routes,

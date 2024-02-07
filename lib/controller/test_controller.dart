@@ -12,9 +12,13 @@ class TestController extends GetxController {
 
   getData() async {
     statusRequest = StatusRequest.loading;
+
     var response = await testData.getData();
-    print("=================== Controller $response");
+
+    print("=============================== Controller $response ");
+
     statusRequest = handlingData(response);
+
     if (StatusRequest.success == statusRequest) {
       // Start backend
       if (response['status'] == "success") {
