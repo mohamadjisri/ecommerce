@@ -44,10 +44,9 @@ class Categories extends GetView<ItemsControllerImp> {
         children: [
           GetBuilder<ItemsControllerImp>(
               builder: (controller) => Container(
-                    padding:
-                        const EdgeInsets.only(right: 10, left: 10, bottom: 5),
+                    padding:const  EdgeInsets.only(right: 10, left: 10, bottom: 5),
                     decoration: controller.selectedCat == i
-                        ? const BoxDecoration(
+                        ?const BoxDecoration(
                             border: Border(
                                 bottom: BorderSide(
                                     width: 3, color: AppColor.primaryColor)))
