@@ -1,5 +1,6 @@
 import 'package:ecommerce/controller/home_controller.dart';
 import 'package:ecommerce/core/class/handlingdataview.dart';
+import 'package:ecommerce/core/constant/routes.dart';
 import 'package:ecommerce/view/widget/home/customappbar.dart';
 import 'package:ecommerce/view/widget/home/customcardhome.dart';
 import 'package:ecommerce/view/widget/home/customtitlehome.dart';
@@ -22,9 +23,13 @@ class HomePage extends StatelessWidget {
                 child: ListView(
                   children: [
                     CustomAppBar(
-                        titleappbar: "Find Product",
-                        onPressedIcon: () {},
-                        onPressedSearch: () {}),
+                      titleappbar: "Find Product",
+                      // onPressedIcon: () {},
+                      onPressedSearch: () {},
+                      onPressedIconFavorite: () {
+                        Get.toNamed(AppRoute.myfavroite);
+                      },
+                    ),
                     const CustomCardHome(
                         title: "A summer surprise", body: "Cashback 20%"),
                     const CustomTitleHome(title: "Categories"),

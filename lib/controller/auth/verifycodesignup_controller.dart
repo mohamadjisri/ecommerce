@@ -10,7 +10,7 @@ abstract class VerifyCodeSignUpController extends GetxController {
 }
 
 class VerifyCodeSignUpControllerImp extends VerifyCodeSignUpController {
-  VerifyCodeSignUpData verifyCodeSignUpData = VerifyCodeSignUpData(Get.find());
+  VerfiyCodeSignUpData verifyCodeSignUpData = VerfiyCodeSignUpData(Get.find());
 
   String? email;
 
@@ -43,5 +43,9 @@ class VerifyCodeSignUpControllerImp extends VerifyCodeSignUpController {
   void onInit() {
     email = Get.arguments['email'];
     super.onInit();
+  }
+
+  reSend() {
+    verifyCodeSignUpData.resendData(email!);
   }
 }

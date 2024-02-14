@@ -1,23 +1,22 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:ecommerce/controller/favorite_controller.dart';
-import 'package:ecommerce/controller/items_controller.dart';
+import 'package:ecommerce/controller/myfavoritecontroller.dart';
 import 'package:ecommerce/core/constant/color.dart';
 import 'package:ecommerce/core/functions/translatedatabase.dart';
-import 'package:ecommerce/data/model/itemsmodel.dart';
+import 'package:ecommerce/data/model/myfavorite.dart';
 import 'package:ecommerce/linkapi.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class CustomListItems extends GetView<ItemsControllerImp> {
-  final ItemsModel itemsModel;
+class CustomListFavoriteItems extends GetView<MyFavoriteController> {
+  final MyFavoriteModel itemsModel;
   // final bool active;
-  const CustomListItems({super.key, required this.itemsModel});
+  const CustomListFavoriteItems({super.key, required this.itemsModel});
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
         onTap: () {
-          controller.goToPageProductDetails(itemsModel);
+          // controller.goToPageProductDetails(itemsModel);
         },
         child: Card(
           child: Padding(
@@ -72,27 +71,14 @@ class CustomListItems extends GetView<ItemsControllerImp> {
                               fontSize: 16,
                               fontWeight: FontWeight.bold,
                               fontFamily: "sans")),
-                      GetBuilder<FavoriteController>(
-                          builder: (controller) => IconButton(
-                              onPressed: () {
-                                if (controller.isFavorite[itemsModel.itemsId] ==
-                                    "1") {
-                                  controller.setFavorite(
-                                      itemsModel.itemsId, "0");
-                                  controller
-                                      .removeFavorite(itemsModel.itemsId!);
-                                } else {
-                                  controller.setFavorite(
-                                      itemsModel.itemsId, "1");
-                                  controller.addFavorite(itemsModel.itemsId!);
-                                }
-                              },
-                              icon: Icon(
-                                controller.isFavorite[itemsModel.itemsId] == "1"
-                                    ? Icons.favorite
-                                    : Icons.favorite_border_outlined,
-                                color: AppColor.primaryColor,
-                              )))
+                      IconButton(
+                          onPressed: () {
+                              controller.deleteFromFavorite(itemsModel.favoriteId!) ;
+                          },
+                          icon: const Icon(
+                            Icons.delete_outline_outlined,
+                            color: AppColor.primaryColor,
+                          ))
                     ],
                   )
                 ]),

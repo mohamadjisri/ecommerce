@@ -23,6 +23,7 @@ class AppLink {
       "$server/forgetpassword/resetpassword.php";
   static const String verifycodeforgetpassword =
       "$server/forgetpassword/verifycode.php";
+  static const String resend = "$server/auth/resend.php";
 
 // ======================= Home ====================== //
 
@@ -30,4 +31,11 @@ class AppLink {
 
   // items
   static const String items = "$server/items/items.php";
+
+  // Favorite
+  static const String favoriteAdd = "$server/favorite/add.php";
+  static const String favoriteRemove = "$server/favorite/remove.php";
+  static const String favoriteView = "$server/favorite/view.php";
+  static const String deletefromfavroite =
+      "$server/favorite/deletefromfavroite.php";
 }
