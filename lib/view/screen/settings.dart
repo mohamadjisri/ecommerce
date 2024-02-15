@@ -1,3 +1,4 @@
+import 'package:ecommerce/controller/settings.controller.dart';
 import 'package:ecommerce/core/constant/color.dart';
 import 'package:ecommerce/core/constant/imageassest.dart';
 import 'package:flutter/material.dart';
@@ -8,6 +9,7 @@ class Settings extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SettingsController controller = Get.put(SettingsController());
     return Container(
       child: ListView(
         children: [
@@ -33,19 +35,35 @@ class Settings extends StatelessWidget {
           const SizedBox(height: 100),
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 10),
-            child: const Card(
+            child: Card(
               child: Column(mainAxisSize: MainAxisSize.min, children: [
                 ListTile(
-                  title: Text("title one"),
+                  // onTap: () {},
+                  trailing: Switch(onChanged: (val) {}, value: true),
+                  title: const Text("Disable Notificatios"),
                 ),
-                Divider(),
                 ListTile(
-                  title: Text("title one"),
+                  onTap: () {},
+                  trailing: const Icon(Icons.location_on_outlined),
+                  title: const Text("Address"),
                 ),
-                Divider(),
                 ListTile(
-                  title: Text("title one"),
-                )
+                  onTap: () {},
+                  trailing: const Icon(Icons.help_outline_rounded),
+                  title: const Text("About us"),
+                ),
+                ListTile(
+                  onTap: () {},
+                  trailing: const Icon(Icons.phone_callback_outlined),
+                  title: const Text("Contact us"),
+                ),
+                ListTile(
+                  onTap: () {
+                    controller.logout();
+                  },
+                  title: const Text("Logout"),
+                  trailing: const Icon(Icons.exit_to_app),
+                ),
               ]),
             ),
           )

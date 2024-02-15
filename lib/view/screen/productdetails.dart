@@ -48,12 +48,12 @@ class ProductDetails extends StatelessWidget {
                   "${controller.itemsModel.itemsDesc} ${controller.itemsModel.itemsDesc} ${controller.itemsModel.itemsDesc} ${controller.itemsModel.itemsDesc} ${controller.itemsModel.itemsDesc}",
                   style: Theme.of(context).textTheme.bodyLarge),
               const SizedBox(height: 10),
-              Text("Color",
-                  style: Theme.of(context).textTheme.displayLarge!.copyWith(
-                        color: AppColor.fourthColor,
-                      )),
-              const SizedBox(height: 10),
-              const SubitemsList()
+              // Text("Color",
+              //     style: Theme.of(context).textTheme.displayLarge!.copyWith(
+              //           color: AppColor.fourthColor,
+              //         )),
+              // const SizedBox(height: 10),
+              // const SubitemsList()
             ]),
           )
         ]));
