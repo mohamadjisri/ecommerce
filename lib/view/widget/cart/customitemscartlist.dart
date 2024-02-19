@@ -1,16 +1,23 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:ecommerce/core/constant/color.dart';
-import 'package:ecommerce/core/constant/imageassest.dart';
+import 'package:ecommerce/linkapi.dart';
 import 'package:flutter/material.dart';
 
 class CustomItemsCartList extends StatelessWidget {
   final String name;
   final String price;
   final String count;
+  final String imagename;
+  final void Function()? onAdd;
+  final void Function()? onRemove;
   const CustomItemsCartList({
     super.key,
     required this.name,
     required this.price,
     required this.count,
+    required this.imagename,
+    required this.onAdd,
+    required this.onRemove,
   });
 
   @override
@@ -20,10 +27,9 @@ class CustomItemsCartList extends StatelessWidget {
         child: Row(children: [
           Expanded(
               flex: 2,
-              child: Image.asset(
-                AppImageAsset.logo,
-                height: 90,
-                fit: BoxFit.cover,
+              child: CachedNetworkImage(
+                imageUrl: "${AppLink.imagestItems}/$imagename",
+                height: 80,
               )),
           Expanded(
               flex: 3,
@@ -39,7 +45,7 @@ class CustomItemsCartList extends StatelessWidget {
               Container(
                   height: 35,
                   child: IconButton(
-                      onPressed: () {}, icon: const Icon(Icons.add))),
+                      onPressed: onAdd, icon: const Icon(Icons.add))),
               Container(
                   height: 30,
                   child: Text(
@@ -49,7 +55,7 @@ class CustomItemsCartList extends StatelessWidget {
               Container(
                   height: 25,
                   child: IconButton(
-                      onPressed: () {}, icon: const Icon(Icons.remove)))
+                      onPressed: onRemove, icon: const Icon(Icons.remove)))
             ],
           ))
         ]),

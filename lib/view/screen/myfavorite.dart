@@ -1,7 +1,5 @@
 import 'package:ecommerce/controller/myfavoritecontroller.dart';
 import 'package:ecommerce/core/class/handlingdataview.dart';
-import 'package:ecommerce/core/constant/routes.dart';
-import 'package:ecommerce/view/widget/home/customappbar.dart';
 import 'package:ecommerce/view/widget/myfavorite/customlistfavoriteitems.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -17,13 +15,13 @@ class MyFavorite extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 10),
         child: GetBuilder<MyFavoriteController>(
             builder: ((controller) => ListView(children: [
-                  CustomAppBar(
-                    titleappbar: "Find Product",
-                    onPressedSearch: () {},
-                    onPressedIconFavorite: () {
-                      Get.toNamed(AppRoute.myfavroite);
-                    },
-                  ),
+                  // CustomAppBar(
+                  //   titleappbar: "Find Product",
+                  //   onPressedSearch: () {},
+                  //   onPressedIconFavorite: () {
+                  //     Get.toNamed(AppRoute.myfavroite);
+                  //   },
+                  // ),
                   const SizedBox(height: 20),
                   HandlingDataView(
                       statusRequest: controller.statusRequest,
