@@ -49,4 +49,17 @@ class AppLink {
   static const String cartadd = "$server/cart/add.php";
   static const String cartdelete = "$server/cart/delete.php";
   static const String cartgetcountitems = "$server/cart/getcountitems.php";
+
+
+// Address
+
+  static const String addressView = "$server/address/view.php";
+  static const String addressAdd = "$server/address/add.php";
+  static const String addressEdit = "$server/address/edit.php";
+  static const String addressDelete = "$server/address/delete.php";
+
+  // Coupon 
+
+  static const String checkcoupon  = "$server/coupon/checkcoupon.php";
+
 }
